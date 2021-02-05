@@ -1,11 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
 body {
   margin: 0;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+* {
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 150px 1fr 1fr;
+  grid-template-areas: "sidebar   main   popover", "sidebar   main   main",
+    "footer   footer   footer";
+  max-width: 99vw;
+  margin: 0 auto;
+}
+
+.wrapper {
+  width: 80vw;
+  height: 90vh;
+  grid-area: main;
+  margin: 5px;
+  border: 1px solid purple;
+}
+
+.results {
+  border: 1px solid blue;
+  margin: 50px 5px;
+}
+
+.factFill {
+  width: 75%;
+  margin: auto;
+  border: 1px solid red;
+}
+
+#getFact {
+  display: block;
+  margin: 15px auto;
+  padding: 10px;
+  border-radius: 5%;
+  background-color: orangered;
+  border: none;
 }
 
 #displayFact {
-  position: relative;
-  width: 80vw;
-  height: 95vh;
-  left: 15vw;
-  border: 1px solid red;
+  border: 1px solid cyan;
+  border-radius: 50% / 50%;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 5vh;
 }
