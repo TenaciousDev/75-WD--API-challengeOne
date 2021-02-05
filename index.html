@@ -9,17 +9,28 @@
   <body>
     <section class="main-grid">
       <div class="sidebar">
-        <h2 class="title"></h2>
-        <p class="directions"></p>
+        <h2 class="title">NerdCat is Hungry!</h2>
+        <p class="directions">
+          Your mission, should you choose to accept it, is to feed NerdCat. When
+          you do, NerdCat might tell you some interesting facts!
+        </p>
         <div class="controls">
-          <button class="feed"></button>
-          <button class="pet"></button>
+          <button class="feed">Feed</button>
+          <button class="pet">Pet</button>
+        </div>
+        <div class="footer">
+          <p>
+            Designed by <a href="">Adam Metcalf</a> using
+            <a href="">CatFacts API</a>
+          </p>
         </div>
       </div>
-      <div class="fact-area"></div>
-      <div class="fact-area"></div>
-      <div class="fact-area"></div>
-      <div class="fact-area"></div>
+      <div class="fact-area">
+        <div id="tl"></div>
+        <div id="tr"></div>
+        <div id="bl"></div>
+        <div id="br"></div>
+      </div>
       <div class="cat-area">
         <div class="cat-container"></div>
         <div class="food-container"></div>

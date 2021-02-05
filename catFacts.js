@@ -1,6 +1,6 @@
 const baseURL = 'https://cat-fact.herokuapp.com';
-const factArea = document.querySelector('#displayFact');
-const getFactBtn = document.querySelector('#getFact');
+const factArea = document.querySelector('.fact-area');
+const getFactBtn = document.querySelector('.feed');
 let url;
 getFactBtn.addEventListener('click', fetchFact);
 
@@ -30,8 +30,17 @@ function displayFact(json){
   }
     let text = json.text;
     let fact = document.createElement('p');
-    fact.className = 'factFill';
+    fact.className = 'fact-bubble';
     fact.textContent = text;
+    let factChars = text.length
+    let factStyle = fact.style;
+    if(factChars < 80){
+      factStyle.width = text.length/2 + 'ch';
+      factStyle.padding = '5px';
+    } else {
+      factStyle = text.length/3 + 'ch';
+      factStyle.padding = '5px';
+    }
     console.log(text);
     factArea.appendChild(fact);
   }
