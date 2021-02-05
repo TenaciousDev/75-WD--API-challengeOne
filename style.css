@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+}
+
+#displayFact {
+  position: relative;
+  width: 80vw;
+  height: 95vh;
+  left: 15vw;
+  border: 1px solid red;
+}
