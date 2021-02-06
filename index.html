@@ -9,14 +9,12 @@
   <body>
     <section class="main-grid">
       <div class="sidebar">
-        <h2 class="title">NerdCat is Hungry!</h2>
-        <p class="directions">
-          Your mission, should you choose to accept it, is to feed NerdCat. When
-          you do, NerdCat might tell you some interesting facts!
-        </p>
+        <h2 class="title">Cat Is Hungry.</h2>
+        <p class="directions">Feed Cat. Learn things.</p>
         <div class="controls">
           <button class="feed">Feed</button>
-          <button class="pet">Pet</button>
+          <!-- Will include 'Pet' feature if there's time -->
+          <!-- <button class="pet">Pet</button> -->
         </div>
         <div class="footer">
           <p>
@@ -25,15 +23,28 @@
           </p>
         </div>
       </div>
-      <div class="fact-area">
-        <div id="tl"></div>
-        <div id="tr"></div>
-        <div id="bl"></div>
-        <div id="br"></div>
-      </div>
+      <div class="fact-area"></div>
       <div class="cat-area">
-        <div class="cat-container"></div>
-        <div class="food-container"></div>
+        <div class="cat">
+          <div class="eye eye-left">
+            <div class="left-pupil"></div>
+          </div>
+          <div class="eye eye-right">
+            <div class="right-pupil"></div>
+          </div>
+          <div class="whiskers">
+            <div class="whiskers-left">
+              <div class="whisker"></div>
+              <div class="whisker"></div>
+              <div class="whisker"></div>
+            </div>
+            <div class="whiskers-right">
+              <div class="whisker"></div>
+              <div class="whisker"></div>
+              <div class="whisker"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <script type="text/javascript" src="catFacts.js"></script>
