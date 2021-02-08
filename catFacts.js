@@ -21,8 +21,8 @@ function fetchFact(e) {
       } else if (json.text.length > 300) {
         console.log("too many characters, fetching a different fact");
         fetchFact(); //recursion again
-        // filter out emails and youtube links, may not catch everything but it gets most of them
-      } else if (json.text.includes("*@*mail.*" || "*youtu.be*")) {
+        // filter out email addresses and URLs, may not catch everything but it gets most of them
+      } else if (json.text.includes("*@*mail.*" || "*youtu.be*" || "*http*")) {
         console.log("this is not a cat fact");
         fetchFact(); //and once more, recursion. I just like pointing out recursion, it makes me happy
       } else {
