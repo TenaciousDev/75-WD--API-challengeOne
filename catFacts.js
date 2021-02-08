@@ -45,22 +45,22 @@ function fetchFact(e) {
     if (factChars < 80) {
       factStyle.width = factChars / 1.5 + "ch";
       factStyle.padding = "5px";
-      factStyle.left = (factChars + 700) / 1.5 + "px";
+      factStyle.left = (factChars + 700) / 1.5 + 25 + "px";
       factStyle.top = (factChars + 50) / 1.5 + "px";
     } else if (factChars < 180) {
       factStyle.width = factChars / 2 + "ch";
       factStyle.padding = "5px";
-      factStyle.left = (factChars + 500) / 2 + "px";
+      factStyle.left = (factChars + 500) / 2 + 25 + "px";
       factStyle.top = (factChars + 30) / 2 + "px";
     } else if (factChars < 250) {
       factStyle.width = factChars / 3 + "ch";
       factStyle.padding = "5px";
-      factStyle.left = (400 - factChars) * 3 + "px";
+      factStyle.left = (400 - factChars) * 3 + 25 + "px";
       factStyle.top = (factChars - 50) / 3 + "px";
     } else {
       factStyle.width = factChars / 4 + "ch";
       factStyle.padding = "5px";
-      factStyle.left = (400 - factChars) * 2.5 + "px";
+      factStyle.left = (400 - factChars) * 2.5 + 15 + "px";
       factStyle.top = (factChars - 100) / 3 + "px";
     }
     // console.log(text); // <-- uncomment for testing
