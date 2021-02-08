@@ -2,6 +2,7 @@ const baseURL = "https://cat-fact.herokuapp.com";
 const factArea = document.querySelector(".fact-area");
 const getFactBtn = document.querySelector(".feed");
 let url;
+let clickCount = 0;
 getFactBtn.addEventListener("click", fetchFact);
 
 function fetchFact(e) {
@@ -20,6 +21,8 @@ function fetchFact(e) {
       } else if (json.text.length > 300) {
         console.log("too many characters, fetching a different fact");
         fetchFact();
+      } else if (json.text.includes("*@*mail.*" || "*youtu.be*")) {
+        console.log("this is not a cat fact");
       } else {
         displayFact(json);
       }
@@ -31,18 +34,48 @@ function fetchFact(e) {
     }
     let text = json.text;
     let fact = document.createElement("p");
-    fact.className = "fact-bubble";
-    fact.textContent = text;
     let factChars = text.length;
     let factStyle = fact.style;
+    fact.className = "fact-bubble";
+    fact.textContent = text;
     if (factChars < 80) {
-      factStyle.width = text.length / 2 + "ch";
+      factStyle.width = factChars / 1.5 + "ch";
       factStyle.padding = "5px";
+      factStyle.left = (factChars + 700) / 1.5 + "px";
+      factStyle.top = (factChars + 50) / 1.5 + "px";
+    } else if (factChars < 180) {
+      factStyle.width = factChars / 2 + "ch";
+      factStyle.padding = "5px";
+      factStyle.left = (factChars + 500) / 2 + "px";
+      factStyle.top = (factChars + 30) / 2 + "px";
+    } else if (factChars < 250) {
+      factStyle.width = factChars / 3 + "ch";
+      factStyle.padding = "5px";
+      factStyle.left = (400 - factChars) * 3 + "px";
+      factStyle.top = (factChars - 50) / 3 + "px";
     } else {
-      factStyle = text.length / 3 + "ch";
+      factStyle.width = factChars / 4 + "ch";
       factStyle.padding = "5px";
+      factStyle.left = (400 - factChars) * 2.5 + "px";
+      factStyle.top = (factChars - 100) / 3 + "px";
     }
-    console.log(text);
+    // console.log(text);
     factArea.appendChild(fact);
+    clickCount++;
+    // console.log(clickCount);
+    if (clickCount >= 60) {
+      document.querySelector(".feed").style.marginTop = "15ch";
+    }
+    showHidden(clickCount);
+  }
+
+  function showHidden(i) {
+    let hiddenId = document.querySelector(`#show-${i}`);
+    // let showId = hiddenId.style.display;
+    if (hiddenId) {
+      hiddenId.style.display = "inline";
+    } else {
+      return;
+    }
   }
 }

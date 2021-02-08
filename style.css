@@ -1,72 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Share+Tech+Mono&display=swap");
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
+  background: black;
   width: 100vw;
+  overflow: hidden;
 }
-/* Begin Visual Aids */
-div {
-  /* background-color: lightcyan; */
-  /* border: 1px solid red; */
-}
-/* End Visual Aids */
-/* Begin Styles */
+
 .main-grid {
   display: grid;
   width: 99vw;
   height: 99vh;
-  gap: none;
+  gap: 0;
   grid-template-columns: minmax(250px, 15vw) auto;
   /* grid-area: 1 / 1 / 3 / 3; */
   grid-template-areas:
     "sidebar fact-area"
     "sidebar cat-area";
-  background: black;
 }
 .sidebar {
   grid-area: sidebar;
+  display: grid;
+  gap: 0;
+  grid-template-rows: minmax(5px, 10vh) auto;
+  grid-template-areas: "title" "directions" "controls" "footer";
   background-color: rgba(0, 0, 0, 0.603);
   color: white;
   padding-left: 10%;
 }
 .title {
-  margin: auto;
+  grid-area: title;
+  margin: 5px auto 5px 40px;
+  height: 2ch;
+}
+.tagline {
+  grid-area: title;
+  margin-top: 2.5ch;
+  margin-left: 4.5ch;
+  font-weight: 500;
 }
 .directions {
-  margin: auto;
-  line-height: 2.5rem;
+  grid-area: directions;
+  margin: -25px auto 5px 40px;
+  height: 2ch;
+  line-height: 2.7ch;
+  font-family: "Share Tech Mono", sans-serif;
+}
+.hidden {
+  display: none;
 }
 .controls {
+  grid-area: controls;
   position: relative;
-  top: 50vh;
-  background-color: lightgrey;
+  margin-top: 0ch;
+  padding: 100% 0 0 0;
   text-align: center;
 }
-.feed {
+.feed,
+.feed:hover {
   width: 95%;
   padding: 0.6rem;
+  background: linear-gradient(
+    to bottom,
+    rgb(11, 236, 240) 0%,
+    rgb(9, 192, 196) 50%,
+    rgb(9, 192, 196) 70%,
+    rgb(9, 192, 196) 100%
+  );
+  opacity: 0.8;
+  border: 4px solid rgb(29, 29, 29);
+  border-radius: 15%;
+  cursor: pointer;
 }
-.pet {
-  width: 95%;
-  padding: 0.6rem;
+
+.feed:hover {
+  opacity: 1;
 }
+
 .footer {
+  grid-area: footer;
+  width: 95%;
+  margin: auto auto 5px 5%;
   position: relative;
-  top: 50.5vh;
+  font-size: 0.9rem;
+  line-height: 1rem;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: seashell;
+}
+
+.created,
+.using {
+  width: 60%;
+  text-align: end;
+  display: inline-block;
+  font-family: "Share Tech Mono";
+}
+.using {
+  width: 74%;
+}
+
+.footer-link:hover {
+  text-decoration: underline wavy rgb(9, 192, 196) 2px;
+  text-decoration-skip: spaces; /*only supported by Safari so far, but hey maybe you're using Safari*/
+  text-underline-offset: 0.3ch;
 }
 .fact-area {
   grid-area: fact-area;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
 }
 
 .fact-bubble {
-  position: unset;
+  position: absolute;
+  top: 25px;
+  left: auto;
+  max-width: 50ch;
   height: min-content;
   line-height: 3ch;
-  background-color: seashell;
   padding-bottom: 5px;
+  background-color: black;
+  color: seashell;
+  font-family: "Share Tech Mono";
+  font-size: 1.5rem;
 }
 .cat-area {
   grid-area: cat-area;
@@ -90,7 +148,7 @@ div {
   border-width: 7px 2px 4px 9px;
   border-color: rgb(17, 42, 47) rgb(17, 42, 47) rgb(17, 42, 47);
   background-image: radial-gradient(
-    /* from top, */ rgb(11, 236, 240) 15%,
+    rgb(11, 236, 240) 15%,
     rgba(9, 192, 196, 0.3) 100%
   );
 }
@@ -169,7 +227,6 @@ div {
   border-right: 1px solid black;
   border-top-left-radius: 10rem 5rem;
   border-top-right-radius: 2rem 1rem;
-  /* border-bottom-left-radius: 3rem 5rem; */
   border-bottom-right-radius: 1rem 5rem;
 }
 
@@ -189,24 +246,3 @@ div {
   margin-left: 15px;
   transform: rotate(-9deg) translateX(15px);
 }
-
-/* .mouth {
-  position: relative;
-  top: 20%;
-  left: 13%;
-  width: 490px;
-  height: 120px;
-  background-color: white; 
-  border-top-left-radius: 15rem 20%;
-  border-top-right-radius: 10rem 20%;
-  border-bottom-left-radius: 100% 15rem;
-  border-bottom-right-radius: 100% 15rem;
-  border-bottom: 4px solid white;
-  clip-path: inset(10% 10% 10% 10% round 20%, 20%);
-} */
-
-/* .mouth::before {
-  border-bottom-left-radius: 15rem;
-  border-bottom-right-radius: 15rem;
-  border-bottom: 15px solid blue;
-} */

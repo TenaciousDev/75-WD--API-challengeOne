@@ -4,26 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <title>So you like cats...</title>
+    <title>Cat Is Hungry. | a '90s-ish webpage</title>
+    <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/png">
   </head>
   <body>
     <section class="main-grid">
       <div class="sidebar">
         <h2 class="title">Cat Is Hungry.</h2>
-        <p class="directions">Feed Cat. Learn things.</p>
+        <p class="tagline"><sub>a '90s-ish webpage.</sub></p>
+        <p class="directions">Feed Cat.
+          <br><span class="hidden" id="show-1">Learn Fact.</span>
+          <br><span class="hidden" id="show-2">Do it again.</span>
+          <br><span class="hidden" id="show-9">Eventually, get bored.</span>
+          <br><span class="hidden" id="show-12">Go away.</span>
+          <br><span class="hidden" id="show-13">Forget about cat.</span>
+          <br><span class="hidden" id="show-16">Cat is sad.</span>
+          <br><span class="hidden" id="show-18">Cat is lonely.</span>
+          <br><span class="hidden" id="show-21">Cat is hungry.</span>
+          <br><span class="hidden" id="show-35">Come back.</span>
+          <br><span class="hidden" id="show-36">Feed cat again.</span>
+          <br><span class="hidden" id="show-37">Cat purrs.</span>
+          <br><span class="hidden" id="show-38">Both are happy.</span>
+          <br><span class="hidden" id="show-55">End of story.</span>
+          <br><span class="hidden" id="show-60">Seriously, end of story.</span>
+          <br><span class="hidden" id="show-70">You go away now.</span>
+          <br><span class="hidden" id="show-75">No more space,<br>&nbsp;button in way! Go away!!</span></p>
         <div class="controls">
           <button class="feed">Feed</button>
           <!-- Will include 'Pet' feature if there's time -->
           <!-- <button class="pet">Pet</button> -->
         </div>
         <div class="footer">
-          <p>
-            Designed by <a href="">Adam Metcalf</a> using
-            <a href="">CatFacts API</a>
+          <p>Created by: <span class="created"><a href="https://asmetcalf.github.io/" target="_blank" class="footer-link">Adam Metcalf</a></span></p>
+          <p>Using: <span class="using"><a href="https://alexwohlbruck.github.io/cat-facts/docs/" target="_blank" class="footer-link">CatFacts API</a></span></p>
           </p>
         </div>
       </div>
-      <div class="fact-area"></div>
+      <div class="fact-area">
+        <!-- Text from API is generated here -->
+      </div>
       <div class="cat-area">
         <div class="cat">
           <div class="eye eye-left">
