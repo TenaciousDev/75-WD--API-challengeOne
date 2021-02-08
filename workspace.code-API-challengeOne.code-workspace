@@ -1,0 +1,14 @@
+{
+  "folders": [
+	{
+		"path": "..\\..\\.."
+	},
+	{
+		"path": "..\\..\\..\\..\\..\\..\\!dev!design"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "GOLD BADGE",
+    "liveServer.settings.port": 5501
+  }
+}
