@@ -6,7 +6,6 @@ let clickCount = 0;
 getFactBtn.addEventListener("click", fetchFact);
 
 function fetchFact(e) {
-  // console.log(e);
   url = baseURL + "/facts/random?animal+type=cat&amount=1";
   console.log(url);
   fetch(url)
@@ -20,11 +19,16 @@ function fetchFact(e) {
         fetchFact(); // recursion!!! Squeeeee!
       } else if (json.text.length > 300) {
         console.log("too many characters, fetching a different fact");
-        fetchFact(); //recursion again
-        // filter out email addresses and URLs, may not catch everything but it gets most of them
-      } else if (json.text.includes("*@*mail.*" || "*youtu.be*" || "*http*")) {
-        console.log("this is not a cat fact");
-        fetchFact(); //and once more, recursion. I just like pointing out recursion, it makes me happy
+        fetchFact();
+        // Also need to filter out email addresses and URLs, this may not catch every bit of spam but it gets most of them
+      } else if (
+        json.text.includes("*@*mail.*") ||
+        json.text.includes("*youtu.be*") ||
+        json.text.includes("*http*") ||
+        !json.text.includes(" ")
+      ) {
+        console.log("this is probably spam, fetching a different fact");
+        fetchFact();
       } else {
         displayFact(json);
       }
@@ -66,17 +70,17 @@ function fetchFact(e) {
     // console.log(text); // <-- uncomment for testing
     factArea.appendChild(fact);
     clickCount++;
-    // console.log(clickCount); // <-- uncomment for testing
-    if (clickCount >= 60) {
+    // console.log(`clickCount: ${clickCount}`); // <-- uncomment for testing
+    // depending on viewport dimensions, the running list of messages in the sidebar may run into the 'Feed' button. The conditional below helps, but doesn't fix it in every single viewport scenario
+    if (clickCount >= 60 && document.documentElement.clientHeight < 965) {
       document.querySelector(".feed").style.marginTop = "15ch";
     }
     showHidden(clickCount);
   }
 
-  // I'm pretty proud of this idea (below). Before I added this, my project was pretty boring: click a button, get a cat fact. So I decided to spice it up a bit with a growing list of 'secret messages' that are tied to the click-count since initial page load. At least this way, there's more than one interactive thing happening on the screen.
+  // I'm pretty proud of this idea (below). Before I added this, my project was boring: click a button, get a cat fact. So I decided to spice it up a bit with a growing list of 'secret messages' that are tied to the click-count since initial page load. At least this way, there's more than one interactive thing happening on the screen.
   function showHidden(i) {
     let hiddenId = document.querySelector(`#show-${i}`);
-    // let showId = hiddenId.style.display;
     if (hiddenId) {
       hiddenId.style.display = "inline";
     } else {
